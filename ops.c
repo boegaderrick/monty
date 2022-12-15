@@ -1,6 +1,24 @@
 #include "monty.h"
 
 /**
+ * pop - removes element at top of stack
+ * @stack: double pointer to head of stack
+ * @line_number: line in file where command was extracted
+ */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (!temp)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	*stack = temp->next;
+	free(temp);
+}
+
+/**
  * _isdigit - custom isdigit function to check whether input is valid number
  * Return: true if valid, else false
  */

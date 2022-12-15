@@ -31,10 +31,11 @@ void _op(stack_t **stack, unsigned int line_number)
 
 	instruction_t instructions[] = {
 		{"push", push},
-		{"pall", pall}
+		{"pall", pall},
+		{"pop", pop}
 	};
 
-	for (i = 0; i < 2; i++)
+	for (i = 0; i < 3; i++)
 	{
 		if (strcmp(instructions[i].opcode, vars.cmd) == 0)
 		{
