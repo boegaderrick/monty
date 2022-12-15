@@ -37,10 +37,11 @@ void _op(stack_t **stack, unsigned int line_number)
 		{"add", add},
 		{"sub", sub},
 		{"div", division},
-		{"mul", mul}
+		{"mul", mul},
+		{"mod", mod}
 	};
 
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < 9; i++)
 	{
 		if (strcmp(instructions[i].opcode, vars.cmd) == 0)
 		{
