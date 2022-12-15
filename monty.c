@@ -34,10 +34,11 @@ void _op(stack_t **stack, unsigned int line_number)
 		{"pall", pall},
 		{"pop", pop},
 		{"swap", swap},
-		{"add", add}
+		{"add", add},
+		{"sub", sub}
 	};
 
-	for (i = 0; i < 5; i++)
+	for (i = 0; i < 6; i++)
 	{
 		if (strcmp(instructions[i].opcode, vars.cmd) == 0)
 		{
