@@ -7,15 +7,17 @@
 bool _isdigit(void)
 {
 	bool digit = true;
-	int i;
+	size_t i;
 
 	for (i = 0; i < strlen(vars.elem); i++)
 	{
 		if (!isdigit(vars.elem[i]))
-			if (i == 0 && vars.elem[i] == '-' || vars.elem[i] == '+')
+		{
+			if (i == 0 && (vars.elem[i] == '-' || vars.elem[i] == '+'))
 				continue;
 			else
 				digit = false;
+		}
 	}
 	return (digit);
 }
@@ -61,7 +63,7 @@ void push(stack_t **stack, unsigned int line_number)
  * @stack: double pointer to top of stack
  * @line_number: line in file where command was extracted
  */
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *temp = *stack;
 

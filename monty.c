@@ -91,14 +91,14 @@ void error_handler(int err_code, char *ref)
  */
 int main(int argc, char **argv)
 {
-	int fd, line_number = 1;
+	int line_number = 1;
 	size_t c_size = 1;
-	char *path, *error, *c_line = NULL, *delim = " \t\n";
+	char *path, *c_line = NULL, *delim = " \t\n";
 	FILE *file;
 	stack_t *stack = NULL;
 
 	if (argc != 2)
-		error_handler(0, path);
+		error_handler(0, argv[0]);
 	path = argv[1];
 	file = fopen(path, "r");
 	if (!file)
