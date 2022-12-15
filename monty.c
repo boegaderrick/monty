@@ -39,10 +39,11 @@ void _op(stack_t **stack, unsigned int line_number)
 		{"div", division},
 		{"mul", mul},
 		{"mod", mod},
-		{"pchar", pchar}
+		{"pchar", pchar},
+		{"pstr", pstr}
 	};
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 11; i++)
 	{
 		if (strcmp(instructions[i].opcode, vars.cmd) == 0)
 		{

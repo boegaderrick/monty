@@ -1,6 +1,28 @@
 #include "monty.h"
 
 /**
+ * pstr - prints string represented by stack elements in ascii
+ * @stack: double pointer to top of the stack
+ * @line_number: line position in file where command was extracted
+ */
+void pstr(stack_t **stack, __attribute__((unused))unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (temp)
+	{
+		while (temp)
+		{
+			if (temp->n < 1 || temp->n > 127)
+				break;
+			printf("%c", temp->n);
+			temp = temp->next;
+		}
+	}
+	printf("\n");
+}
+
+/**
  * pchar - prints char represented by top element in ascii
  * @stack: double pointer to top of the stack
  * @line_number: line position in file where command was extracted
