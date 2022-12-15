@@ -11,7 +11,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 
 	if (temp)
 	{
-		if (temp->n > 31 && temp->n < 127)
+		if (temp->n > -1 && temp->n < 256)
 			printf("%c\n", temp->n);
 		else
 		{
