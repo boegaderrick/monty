@@ -1,6 +1,34 @@
 #include "monty.h"
 
 /**
+ * mul - multiplies second top element of a stack by top one
+ * @stack: double pointer to top of the stack
+ * @line_number: line in file where command was extracted
+ */
+void mul(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+	int i = 0;
+
+	while (temp)
+	{
+		i++;
+		temp = temp->next;
+	}
+	temp = *stack;
+	if (i < 2)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		free(vars.c_line);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
+	temp->next->n *= temp->n;
+	*stack = temp->next;
+	free(temp);
+}
+
+/**
  * division - divides second top element of a stack by top one
  * @stack: double pointer to top of the stack
  * @line_number: line in file where command was extracted
