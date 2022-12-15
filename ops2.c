@@ -13,7 +13,7 @@ void pstr(stack_t **stack, __attribute__((unused))unsigned int line_number)
 	{
 		while (temp)
 		{
-			if (temp->n < 1 || temp->n > 127)
+			if (temp->n < 32 || temp->n > 126)
 				break;
 			printf("%c", temp->n);
 			temp = temp->next;
