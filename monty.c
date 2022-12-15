@@ -46,7 +46,7 @@ void _op(stack_t **stack, unsigned int line_number)
 			break;
 		}
 	}
-	if (!valid)
+	if (!valid && strcmp(vars.cmd, "nop") != 0)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, vars.cmd);
 		free(vars.c_line);
