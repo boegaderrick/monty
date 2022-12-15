@@ -1,8 +1,36 @@
 #include "monty.h"
 
 /**
+ * swap - swaps top two elements of a stack
+ * @stack: double pointer to top of the stack
+ * @line_number: line in file where command was extracted
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+	int temp_num = 0;
+
+	while (temp)
+	{
+		temp_num++;
+		temp = temp->next;
+	}
+	temp = *stack;
+	if (temp_num < 2)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		free(vars.c_line);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
+	temp_num = temp->n;
+	temp->n = temp->next->n;
+	temp->next->n = temp_num;
+}
+
+/**
  * pop - removes element at top of stack
- * @stack: double pointer to head of stack
+ * @stack: double pointer to top of stack
  * @line_number: line in file where command was extracted
  */
 void pop(stack_t **stack, unsigned int line_number)

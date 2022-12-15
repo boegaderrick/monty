@@ -13,6 +13,7 @@
 
 /**
  * struct vars_s - global variables
+ * @c_line: pointer to string read from line in file
  * @cmd: command to be executed on DS
  * @elem: element passed as argument
  */
@@ -62,5 +63,6 @@ void pall(stack_t **stack, unsigned int line_number);
 bool _isdigit(void);
 void free_stack(stack_t *stack);
 void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
