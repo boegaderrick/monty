@@ -74,8 +74,6 @@ void _op(stack_t **stack, unsigned int line_number)
  */
 void error_handler(int err_code, char *ref)
 {
-	char error[50] = "";
-
 	switch (err_code)
 	{
 		case 0:
@@ -83,8 +81,7 @@ void error_handler(int err_code, char *ref)
 			break;
 
 		case 1:
-			strcat(strcat(strcat(error, "Error: Can't open the file "), ref), "\n");
-			write(STDERR_FILENO, error, strlen(error));
+			fprintf(stderr, "Error: Can't open the file %s\n", ref);
 			break;
 	}
 	free(vars.c_line);
