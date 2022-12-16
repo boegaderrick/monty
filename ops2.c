@@ -1,6 +1,28 @@
 #include "monty.h"
 
 /**
+ * rotr - moves element at bottom of stack to top
+ * @stack: double pointer to top of stack
+ * @line_number: line position if file where command was extracted
+ */
+void rotr(stack_t **stack, __attribute__((unused))unsigned int line_number)
+{
+	stack_t *temp = *stack, *tail = *stack;
+
+	if (tail)
+	{
+		while (tail->next->next)
+		{
+			tail = tail->next;
+		}
+		temp = tail->next;
+		temp->next = *stack;
+		*stack = temp;
+		tail->next = NULL;
+	}
+}
+
+/**
  * rotl - moves element at top of stack to bottom
  * @stack: double pointer to top of stack
  * @line_number: line position if file where command was extracted
