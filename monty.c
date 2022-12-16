@@ -40,10 +40,11 @@ void _op(stack_t **stack, unsigned int line_number)
 		{"mul", mul},
 		{"mod", mod},
 		{"pchar", pchar},
-		{"pstr", pstr}
+		{"pstr", pstr},
+		{"rotl", rotl}
 	};
 
-	for (i = 0; i < 11; i++)
+	for (i = 0; i < 12; i++)
 	{
 		if (strcmp(instructions[i].opcode, vars.cmd) == 0)
 		{
