@@ -8,17 +8,23 @@
 void rotr(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *temp = *stack, *tail = *stack;
+	int i = 0;
 
 	if (tail)
 	{
+		i = 1;
 		while (tail->next->next)
 		{
 			tail = tail->next;
+			i++;
 		}
-		temp = tail->next;
-		temp->next = *stack;
-		*stack = temp;
-		tail->next = NULL;
+		if (i > 1)
+		{
+			temp = tail->next;
+			temp->next = *stack;
+			*stack = temp;
+			tail->next = NULL;
+		}
 	}
 }
 
@@ -30,16 +36,22 @@ void rotr(stack_t **stack, __attribute__((unused))unsigned int line_number)
 void rotl(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *temp = *stack, *tail = *stack;
+	int i = 0;
 
 	if (tail)
 	{
+		i = 1;
 		while (tail->next)
 		{
 			tail = tail->next;
+			i++;
 		}
-		*stack = temp->next;
-		tail->next = temp;
-		temp->next = NULL;
+		if (i > 1)
+		{
+			*stack = temp->next;
+			tail->next = temp;
+			temp->next = NULL;
+		}
 	}
 }
 
