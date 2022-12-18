@@ -42,7 +42,7 @@ void _op(stack_t **stack, unsigned int line_number)
 		{"pchar", pchar},
 		{"pstr", pstr},
 		{"rotl", rotl},
-		{"rotr", rotr},
+		{"rotr", rotl},
 		{"pint", pint}
 	};
 
