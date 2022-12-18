@@ -82,7 +82,7 @@ void error_handler(int err_code, char *ref)
 			break;
 
 		case 1:
-			fprintf(stderr, "Error: Can't open the file %s\n", ref);
+			fprintf(stderr, "Error: Can't open file %s\n", ref);
 			break;
 	}
 	free(vars.c_line);
@@ -124,6 +124,7 @@ int main(int argc, char **argv)
 		line_number++;
 	}
 	fclose(file);
+	free(c_line);
 	free_stack(stack);
 	return (0);
 }
