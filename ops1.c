@@ -79,7 +79,7 @@ void division(stack_t **stack, unsigned int line_number)
 	{
 		if (i < 2)
 			fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
-		if (temp->n == 0)
+		if (temp && temp->n == 0)
 			fprintf(stderr, "L%d: division by zero\n", line_number);
 		free(vars.c_line);
 		free_stack(*stack);
