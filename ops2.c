@@ -13,17 +13,24 @@ void rotr(stack_t **stack, __attribute__((unused))unsigned int line_number)
 	if (tail)
 	{
 		i = 1;
-		while (tail->next->next)
+		while (tail->next)
 		{
 			tail = tail->next;
 			i++;
 		}
 		if (i > 1)
 		{
-			temp = tail->next;
-			temp->next = *stack;
-			*stack = temp;
-			tail->next = NULL;
+			tail->next = *stack;
+			while (temp)
+			{
+				if (temp->next == tail)
+				{
+					temp->next = NULL;
+					*stack = tail;
+					break;
+				}
+				temp = temp->next;
+			}
 		}
 	}
 }
