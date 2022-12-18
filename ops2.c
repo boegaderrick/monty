@@ -94,3 +94,25 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * pint - prints integer at top of stack
+ * @stack: double pointer to top of stack
+ * @line_number: posistion in file where command was extracted
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (temp)
+	{
+		printf("%d\n", temp->n);
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		free(vars.c_line);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
+}
